@@ -37,3 +37,4 @@ yarn-error.*
 .vercel
 bun.lock
 package-lock.json
+/.wrangler
