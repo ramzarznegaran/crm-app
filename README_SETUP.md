@@ -313,3 +313,6 @@ For larger teams, upgrade to Cloudflare Workers Paid plan.
 ## License
 
 [Your License Here]
+
+
+eas build --platform android --local
