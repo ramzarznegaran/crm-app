@@ -1,0 +1,15 @@
+name = "contact-crm-api"
+main = "backend/hono.ts"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+account_id="f855041a6c4bb40d6f12adeb2483fff0"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "contact-crm-db"
+database_id = "17bfd7f3-9e65-4429-a59d-ee56b84b780f"
+
+
+[build]
+command = ""
