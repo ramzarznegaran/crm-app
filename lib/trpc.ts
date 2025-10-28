@@ -2,6 +2,7 @@ import { createTRPCReact } from "@trpc/react-query";
 import { httpLink } from "@trpc/client";
 import type { AppRouter } from "@/backend/trpc/app-router";
 import superjson from "superjson";
+// @ts-ignore - AsyncStorage may not be available in web
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const trpc = createTRPCReact<AppRouter>();
@@ -19,10 +20,18 @@ const getBaseUrl = () => {
 export const trpcClient = trpc.createClient({
   links: [
     httpLink({
-      url: `${getBaseUrl()}/api/trpc`,
+      url: `${getBaseUrl()}/trpc`,
       transformer: superjson,
       async headers() {
-        const token = await AsyncStorage.getItem('auth_token');
+        let token = null;
+        try {
+          token = await AsyncStorage.getItem('@crm_token');
+        } catch (e) {
+          console.warn('AsyncStorage not available, trying web storage');
+          // Fallback for web environments
+          token = localStorage.getItem('@crm_token') || sessionStorage.getItem('@crm_token');
+        }
+        console.log('Auth token found:', !!token);
         return {
           authorization: token ? `Bearer ${token}` : '',
           'content-type': 'application/json',
