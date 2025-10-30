@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Shared Mobile Contact CRM",
-    "slug": "shared-mobile-contact-crm",
+    "name": "Contact CRM - Rork",
+    "slug": "rork-contact-crm",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -22,7 +22,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "app.rork.shared-mobile-contact-crm"
+      "package": "com.hero2003.rorkcontactcrm"
     },
     "web": {
       "favicon": "./assets/images/favicon.png"
@@ -37,6 +37,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": "https://rork.com/"
+      },
+      "eas": {
+        "projectId": "adf34718-5887-455e-af73-9e52a1b7910f"
+      }
     }
   }
 }
