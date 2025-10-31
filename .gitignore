@@ -38,4 +38,3 @@ yarn-error.*
 bun.lock
 package-lock.json
 /.wrangler
-/android
